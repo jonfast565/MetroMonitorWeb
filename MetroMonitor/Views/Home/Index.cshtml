@@ -1,0 +1,37 @@
+﻿<div ng-controller="metroMonitor-home-controller">
+    <div class="large-header">Metro Monitor</div>
+    <div class="content">
+        <div class="section" ng-if="home.railPredictions.length > 0">
+            <div class="small-section main-content-no-overflow breathe" style="background-color: #efefef;">
+                <span class="glyphicon glyphicon-time" style="padding-right: 5px;"></span>Predictions
+            </div>
+            <div class="main-content">
+                <table class="table-default">
+                    <tbody>
+                        <tr ng-repeat="record in home.getRailPredictions() track by $index"
+                            onmouseover="this.style.backgroundColor = 'lightgreen';"
+                            onmouseout="this.style.backgroundColor = 'white';"
+                            style="cursor: default;">
+                            <td style="background-color: {{home.getColorCode(record.LineCode)}}; width: 20px; opacity: 0.7;"></td>
+                            <td style="width: 20px; padding-left: 3px;">{{record.CarNumber}}</td>
+                            <td>{{home.getStationInfo(record.LocationStationCode, record.DestinationStationCode)}}</td>
+                            <td style="font-weight: bold;">{{record.MinutesToArrival}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="section main-content-no-overflow breathe" style="background-color: #efefef;">
+                <span style="display: inline-block;" class="small-label">Sort By:</span>
+                <select ng-model="home.currentSort"
+                        ng-options="sort.field as sort.name for sort in home.sorts"
+                        class="form-control sort-drop"
+                        style="display: inline-block;"></select>
+            </div>
+        </div>
+        <div class="section" ng-if="home.railPredictions.length === 0">
+            No predictions available yet. We're loading them...
+        </div>
+    </div>
+    <div class="small-footer">Last Visited on: @DateTime.Now.ToShortDateString() at @DateTime.Now.ToShortTimeString()</div>
+    <div class="small-footer">Copyright 2014 Jon Fast, All Rights Reserved</div>
+</div>

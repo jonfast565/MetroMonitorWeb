@@ -1,0 +1,81 @@
+﻿@font-face {
+    font-family: OpenSans;
+    src: url(/fonts/OpenSans-Regular.ttf);
+}
+
+body {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    font-family: OpenSans;
+}
+
+.large-header {
+    font-size: 20px;
+}
+
+.small-footer {
+    font-size: 10px;
+}
+
+.table-default {
+    width: 100%;
+    padding: 5px 5px 5px 5px;
+}
+
+.table-default tbody tr td {
+    height: 30px;
+    padding-left: 5px;
+}
+
+.table-default tbody tr {
+    border-bottom: 1px solid #efefef;
+}
+
+.section {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.small-section {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.tiny-section {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.main-content {
+    max-height: 500px; 
+    max-width: 400px; 
+    overflow-y: auto;
+}
+
+.main-content-no-overflow {
+    max-height: 500px; 
+    max-width: 400px; 
+}
+
+.small-label {
+    margin-right: 5px;
+}
+
+.sort-drop {
+    width: 331px;
+}
+
+.breathe {
+    padding: 5px 5px 5px 5px;
+}
+
+/* bootstrap overrides */
+.form-control {
+    border-radius: 0;
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+    vertical-align: middle;
+    padding: 0;
+}

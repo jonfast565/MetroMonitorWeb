@@ -1,11 +1,11 @@
 ﻿<div ng-controller="metroMonitor-home-controller">
-    <div class="large-header">Metro Monitor</div>
+    <div class="large-header breathe main-content-no-overflow" style="background-color: #efefef;">Metro Monitor</div>
     <div class="content">
         <div class="section" ng-if="home.railPredictions.length > 0">
             <div class="small-section main-content-no-overflow breathe" style="background-color: #efefef;">
                 <span class="glyphicon glyphicon-time" style="padding-right: 5px;"></span>Predictions
             </div>
-            <div class="main-content">
+            <div class="main-content" style="border: 1px solid #efefef;">
                 <table class="table-default">
                     <tbody>
                         <tr ng-repeat="record in home.getRailPredictions() track by $index"

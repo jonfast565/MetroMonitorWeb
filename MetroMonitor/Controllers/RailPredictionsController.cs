@@ -16,7 +16,7 @@ namespace MetroMonitor.Controllers
         public DataTable Get()
         {
             DataAccess database = new DataAccess();
-            return database.FindAllLimit("RailPredictions", 100);
+            return database.FindAllLimit("RailPredictions");
         }
     }
 }

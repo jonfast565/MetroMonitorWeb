@@ -5,7 +5,9 @@
                 var scheduleFunction = function() {
                     $http({ method: 'GET', url: 'api/RailPredictions/' })
                     .success(function (data) {
-                        api.railPredictions = data
+                        if (data != null) {
+                            api.railPredictions = utilities.filterInvalidPredictions(data)
+                        }
                     })
                 }
                 $timeout(scheduleFunction, 1000)
@@ -21,6 +23,21 @@
                 $http({ method: 'GET', url: 'api/RailLines' })
                 .success(function (data) {
                     api.railStations = data
+                })
+            },
+            stripInvalidCarNumbers: function (railPredictions) {
+                for (var i = 0; i < railPredictions.length; i++) {
+                    if (railPredictions[i].CarNumber === "-" ||
+                        railPredictions[i].CarNumber.replace(" ", "") === "") {
+                        railPredictions[i].CarNumber = null
+                    }
+                }
+                return railPredictions
+            },
+            filterInvalidPredictions: function (railPredictions) {
+                return _.filter(utilities.stripInvalidCarNumbers(railPredictions),
+                    function (prediction) {
+                    return prediction.CarNumber != null
                 })
             },
             initialize: function () {
